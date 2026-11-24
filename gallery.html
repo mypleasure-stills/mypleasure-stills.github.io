@@ -5,13 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mypleasure Stills｜平面攝影作品</title>
 <meta name="description" content="展覽、活動與正式場合的平面攝影，涵蓋展位、人物側拍、外賓交流、論壇與會議。中英雙語溝通，平面與影像團隊同場作業。" />
-<link rel="canonical" href="https://mypleasure-stills.github.io/gallery.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mypleasure Stills" />
 <meta property="og:locale" content="zh_TW" />
 <meta property="og:title" content="Mypleasure Stills｜平面攝影作品" />
 <meta property="og:description" content="展覽、活動與正式場合的平面攝影，涵蓋展位、人物側拍、外賓交流、論壇與會議。中英雙語溝通，平面與影像團隊同場作業。" />
-<meta property="og:url" content="https://mypleasure-stills.github.io/gallery.html" />
 <meta property="og:image" content="https://mypleasure-stills.github.io/images/social-preview.jpg" />
 <meta property="og:image:secure_url" content="https://mypleasure-stills.github.io/images/social-preview.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -153,8 +151,14 @@
     document.title = event.title + ' | Mypleasure Stills';
     const canonicalUrl = new URL('gallery.html', 'https://mypleasure-stills.github.io/');
     canonicalUrl.searchParams.set('event', slug);
-    document.querySelector('link[rel="canonical"]').href = canonicalUrl.href;
-    document.querySelector('meta[property="og:url"]').content = canonicalUrl.href;
+    const canonicalLink = document.createElement('link');
+    canonicalLink.rel = 'canonical';
+    canonicalLink.href = canonicalUrl.href;
+    document.head.appendChild(canonicalLink);
+    const ogUrl = document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url');
+    ogUrl.content = canonicalUrl.href;
+    document.head.appendChild(ogUrl);
     document.getElementById('g-title').textContent = event.title;
     document.getElementById('g-date').textContent = event.date;
 
