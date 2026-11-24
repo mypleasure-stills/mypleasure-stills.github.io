@@ -23,7 +23,6 @@
 }
 
 .site-brand { display: block; flex: 0 0 auto; color: #fff; text-decoration: none; }
-.site-brand-name { display: block; font-size: 1.125rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.04em; }
 .site-brand img { display: block; width: 98px; height: 18px; object-fit: contain; }
 .site-navigation { display: flex; align-items: center; gap: 62px; }
 .site-nav-link {
